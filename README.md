@@ -12,3 +12,15 @@ Extract image features from a sample file.
 5. Compute the chrominance saturation and hue
 6. Miscellaneous
 
+## First Creation
+python -m venv env
+. ./env/bin/activate
+pip install matplotlib
+pip install numpy
+pip freeze > requirements.txt
+
+## Running pylint
+
+## Build
+pip install -r requirements.txt
+
