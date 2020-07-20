@@ -39,7 +39,7 @@ def process():
     y_median = np.median(ycbcr[:,:,0])
     print("y_median", y_median)
 
-    v.show_image(ycbcr)
+    v.show_image(rgb)
     v.show_hist()
 
 
