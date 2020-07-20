@@ -13,13 +13,18 @@ Extract image features from a sample file.
 6. Miscellaneous
 
 ## First Creation
-python -m venv env
+python3 -m venv env
 . ./env/bin/activate
-pip install matplotlib
+pip install --upgrade pip
+# Alternatively upgrade pip this way on OSX if SSL certificate error
+curl https://bootstrap.pypa.io/get-pip.py | python3
 pip install numpy
+pip install matplotlib
+pip install Pillow
 pip freeze > requirements.txt
 
 ## Running pylint
+pylint *.py
 
 ## Build
 pip install -r requirements.txt
