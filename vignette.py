@@ -2,7 +2,7 @@
 from PIL import Image
 # For help, see the documentation at matplotlib.org
 # Also there is a really good youtube video from Corey Schafer
-from matplotlib import image as mpimg
+# from matplotlib import image as mpimg
 from matplotlib import pyplot as plt
 import numpy as np
 
@@ -16,19 +16,13 @@ class Vignette:
         # Display its properties
         print("Image size: {}x{}x3 = ".format(im.size[0], im.size[1]), im.size[0]*im.size[1], "pixels")
         print("Image type: ", im.mode, im.format, type(im))
-         
+
         # Convert image into a 3D array of unsigned 8-bit integers
         im.load()
         rgb = np.asarray(im, dtype=np.uint8)
 
         # Split image into individual color components
         self.R, self.G, self.B = im.split()
-
-        # Display array properties
-        print("rgb array shape:", rgb.shape)
-        print("rgb array size:", rgb.size)
-        print("rgb array data type:", rgb.dtype)
-        print("rgb array dimension:", rgb.ndim)
 
         # Load individual color components in a 2D array
         r = np.asarray(self.R, dtype=np.uint8)
@@ -48,21 +42,20 @@ class Vignette:
         # Keep the image for later use
         self.im = im
         self.rgb = rgb
-    
+
     def get(self):
         return self.rgb
 
-    def show_image(self):
-       # This code could be used to display the image but it is not as nice as using plot: self.im.show(title="Original")
-
-        plt.imshow(self.rgb)
+    def show_image(self, image):
+       # This instruction could be used to display the image but it is not as nice as using plot: self.im.show(title="Original")
+        plt.imshow(image)
         plt.axis('off')
         plt.tight_layout()
         plt.show(block=True)
 
         # Release memory
         plt.close()
-        
+
         """
         # Alternatively load the image using matplotlib
         ar = mpimg.imread('data/frame8.ppm')
@@ -130,5 +123,6 @@ class Vignette:
 
 if __name__ == "__main__":
     v = Vignette(file='data/frame8.ppm')
-    v.show_image()
+    rgb = v.get()
+    v.show_image(rgb)
     v.show_hist()

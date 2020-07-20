@@ -21,11 +21,13 @@ curl https://bootstrap.pypa.io/get-pip.py | python3
 pip install numpy
 pip install matplotlib
 pip install Pillow
+# Create requirement file
 pip freeze > requirements.txt
+deactivate
 
 ## Running pylint
 pylint *.py
 
-## Build
+## Build and run
 pip install -r requirements.txt
-
+python features.py
