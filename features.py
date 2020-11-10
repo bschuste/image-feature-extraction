@@ -1,6 +1,4 @@
 import numpy as np
-import matplotlib.pyplot as plt
-
 from vignette import Vignette
 
 
@@ -19,7 +17,7 @@ def convert2ycbcr(rgb):
     return ycbcr
 
 def process():
-    file = 'data/frame80.ppm'
+    file = 'data/frame8.ppm'
     v = Vignette(file=file)
 
     # Retrieve the 3d array of samples as numpy ndarray
